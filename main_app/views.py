@@ -5,19 +5,19 @@ from django.http import HttpResponse
 from .models import CarPost
 
 
-class Car:  # Note that parens are optional if not inheriting from another class
-    def __init__(self, manufacturer, year, carModel, color, body, isAvailable):
-        self.manufacturer = manufacturer
-        self.year = year
-        self.carModel = carModel
-        self.color = color
-        self.body = body
+# class Car:  # Note that parens are optional if not inheriting from another class
+#     def __init__(self, manufacturer, year, carModel, color, body, isAvailable):
+#         self.manufacturer = manufacturer
+#         self.year = year
+#         self.carModel = carModel
+#         self.color = color
+#         self.body = body
 
-cars = [
-    Car('Ford', '2011', 'F150', 'Grey', 'Crew Cab', True),
-    Car('Toyota', '2016', 'Tundra', 'Cobalt', 'Super Cab', True),
-    Car('Mercedes', '2017', 'S-Class', 'Blue',  'Coupe', False)
-]
+# cars = [
+#     Car('Ford', '2011', 'F150', 'Grey', 'Crew Cab', True),
+#     Car('Toyota', '2016', 'Tundra', 'Cobalt', 'Super Cab', True),
+#     Car('Mercedes', '2017', 'S-Class', 'Blue',  'Coupe', False)
+# ]
 
 # Create your views here.
 
@@ -29,9 +29,9 @@ def about(request):
 
 # # route for cars index
 def cars_index(request):
-    # cars = CarPost.objects.all()
+    cars = CarPost.objects.all()
     return render(request, 'cars/index.html', { 'cars': cars })
 
-# def cars_detail(request, car_id):
-#     car = CarPost.objects.get(id=car_id)
-#     return render(request, 'cars/detail.html', { 'car': car })
+def cars_detail(request, car_id):
+    car = CarPost.objects.get(id=car_id)
+    return render(request, 'cars/detail.html', { 'car': car })
