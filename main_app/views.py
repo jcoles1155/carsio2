@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 # from .models import CarPost
 
+from .models import CarPost
+
 
 class Car:  # Note that parens are optional if not inheriting from another class
     def __init__(self, manufacturer, year, carModel, color, body, isAvailable):
@@ -26,9 +28,9 @@ def about(request):
     return render(request, 'about.html')
 
 # # route for cars index
-# def cars_index(request):
-#     cars = CarPost.objects.all()
-#     return render(request, 'cars/index.html', { 'cars': cars })
+def cars_index(request):
+    # cars = CarPost.objects.all()
+    return render(request, 'cars/index.html', { 'cars': cars })
 
 # def cars_detail(request, car_id):
 #     car = CarPost.objects.get(id=car_id)
