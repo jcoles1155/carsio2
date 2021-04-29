@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 # from .models import CarPost
 
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import CarPost
 
 
@@ -34,4 +35,17 @@ def cars_index(request):
 
 def cars_detail(request, car_id):
     car = CarPost.objects.get(id=car_id)
+    print(car)
     return render(request, 'cars/detail.html', { 'car': car })
+
+class CarCreate(CreateView):
+    model = CarPost
+    fields = '__all__'
+
+class CarUpdate(UpdateView):
+    model = CarPost
+    fields = ['title', 'make', 'carModel', 'color', 'year', 'body', 'description']
+
+class CarDelete(DeleteView):
+    model = CarPost
+    success_url = '/cars/'
