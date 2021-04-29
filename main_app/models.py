@@ -1,5 +1,6 @@
 # Create your models here.
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 class CarPost(models.Model):
@@ -13,3 +14,6 @@ class CarPost(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'car_id': self.id})
