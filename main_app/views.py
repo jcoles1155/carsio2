@@ -5,7 +5,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .forms import CommentForm
 import uuid
 import boto3
-from .models import CarPost
+from .models import CarPost, Photo
 
 S3_BASE_URL = 'https://s3-us-west-1.amazonaws.com/'
 BUCKET = 'carsio'
