@@ -15,6 +15,12 @@
     <a href="{% url 'cars_update' car.id %}">Edit</a>
     <a href="{% url 'cars_delete' car.id %}">Delete</a>
   </div>
+  {% for photo in car.photo_set.all %}
+  <img class="responsive-img card-panel" src="{{photo.url}}" />
+  {% empty %}
+  <div class="card-panel teal-text center-align">No Photos Uploaded</div>
+  {% endfor %}
+
   <div class="col s6">
     <form action="{% url 'add_comment' car.id %}" method="post">
       {% csrf_token %} {{ comment_form.as_p }}
