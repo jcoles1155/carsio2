@@ -26,3 +26,6 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.commentBody
+
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'car_id': self.id})
