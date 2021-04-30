@@ -2,6 +2,7 @@
 from django.db import models
 from django.urls import reverse
 
+
 # Create your models here.
 class CarPost(models.Model):
     title = models.CharField(max_length=50)
@@ -14,6 +15,17 @@ class CarPost(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'car_id': self.id})
+
+
+class Comment(models.Model):
+    commentBody = models.CharField(max_length=250)
+    car = models.ForeignKey(CarPost, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.commentBody
 
     def get_absolute_url(self):
         return reverse('detail', kwargs={'car_id': self.id})
