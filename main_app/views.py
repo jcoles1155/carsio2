@@ -4,7 +4,7 @@ from django.http import HttpResponse
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import CarPost
-
+from .forms import CommentForm
 
 # class Car:  # Note that parens are optional if not inheriting from another class
 #     def __init__(self, manufacturer, year, carModel, color, body, isAvailable):
@@ -36,7 +36,9 @@ def cars_index(request):
 def cars_detail(request, car_id):
     car = CarPost.objects.get(id=car_id)
     print(car)
-    return render(request, 'cars/detail.html', { 'car': car })
+    comment_form = CommentForm()
+    return render(request, 'cars/detail.html', { 
+        'car': car, 'comment_form': comment_form })
 
 class CarCreate(CreateView):
     model = CarPost
@@ -49,3 +51,6 @@ class CarUpdate(UpdateView):
 class CarDelete(DeleteView):
     model = CarPost
     success_url = '/cars/'
+
+def add_comment(request, car_id):
+    pass
