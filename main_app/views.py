@@ -4,6 +4,8 @@ from django.http import HttpResponse
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import CommentForm
 import uuid
 import boto3
@@ -35,10 +37,12 @@ def about(request):
     return render(request, 'about.html')
 
 # # route for cars index
+@login_required
 def cars_index(request):
     cars = CarPost.objects.filter(user=request.user)
     return render(request, 'cats/index.html', { 'cars': cars })
 
+@login_required
 def cars_detail(request, car_id):
     car = CarPost.objects.get(id=car_id)
     print(car)
@@ -47,21 +51,22 @@ def cars_detail(request, car_id):
         'car': car, 'comment_form': comment_form 
     })
 
-class CarCreate(CreateView):
+class CarCreate(LoginRequiredMixin, CreateView):
     model = CarPost
     fields = '__all__'
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-class CarUpdate(UpdateView):
+class CarUpdate(LoginRequiredMixin, UpdateView):
     model = CarPost
     fields = ['title', 'make', 'carModel', 'color', 'year', 'body', 'description']
 
-class CarDelete(DeleteView):
+class CarDelete(LoginRequiredMixin, DeleteView):
     model = CarPost
     success_url = '/cars/'
 
+@login_required
 def add_comment(request, car_id):
     form = CommentForm(request.POST)
     if form.is_valid():
@@ -70,6 +75,7 @@ def add_comment(request, car_id):
         new_comment.save()
     return redirect('detail', car_id=car_id)
 
+@login_required
 def add_photo(request, car_id):
     photo_file = request.FILES.get('photo-file', None)
     if photo_file:
