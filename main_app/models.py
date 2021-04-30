@@ -1,7 +1,7 @@
 # Create your models here.
 from django.db import models
 from django.urls import reverse
-
+from django.contrib.auth.models import User
 
 # Create your models here.
 class CarPost(models.Model):
@@ -12,6 +12,7 @@ class CarPost(models.Model):
     year = models.IntegerField()
     body = models.CharField(max_length=50)
     description = models.CharField(max_length=250)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
@@ -23,6 +24,7 @@ class CarPost(models.Model):
 class Comment(models.Model):
     commentBody = models.CharField(max_length=250)
     car = models.ForeignKey(CarPost, on_delete=models.CASCADE)
+
 
     def __str__(self):
         return self.commentBody
