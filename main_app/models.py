@@ -29,3 +29,10 @@ class Comment(models.Model):
 
     def get_absolute_url(self):
         return reverse('detail', kwargs={'car_id': self.id})
+
+class Photo(models.Model):
+    url = models.CharField(max_length=200)
+    car = models.ForeignKey(CarPost, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"Photo for car_id: {self.car_id} @{self.url}"
