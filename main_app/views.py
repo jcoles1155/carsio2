@@ -36,8 +36,8 @@ def about(request):
 
 # # route for cars index
 def cars_index(request):
-    cars = CarPost.objects.all()
-    return render(request, 'cars/index.html', { 'cars': cars })
+    cars = CarPost.objects.filter(user=request.user)
+    return render(request, 'cats/index.html', { 'cars': cars })
 
 def cars_detail(request, car_id):
     car = CarPost.objects.get(id=car_id)
