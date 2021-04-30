@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 # from .models import CarPost
 
@@ -38,7 +38,8 @@ def cars_detail(request, car_id):
     print(car)
     comment_form = CommentForm()
     return render(request, 'cars/detail.html', { 
-        'car': car, 'comment_form': comment_form })
+        'car': car, 'comment_form': comment_form 
+    })
 
 class CarCreate(CreateView):
     model = CarPost
@@ -53,4 +54,9 @@ class CarDelete(DeleteView):
     success_url = '/cars/'
 
 def add_comment(request, car_id):
-    pass
+    form = CommentForm(request.POST)
+    if form.is_valid():
+        new_comment = form.save(commit=False)
+        new_comment.car_id = car_id
+        new_comment.save()
+    return redirect('detail', car_id=car_id)
