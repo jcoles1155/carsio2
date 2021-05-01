@@ -11,6 +11,7 @@
     <p>Color: {{ car.color }}</p>
     <p>Description: {{ car.description }}</p>
     <p>Created on: {{ car.created_at }}</p>
+    <p>Post by: {{ car.user }}</p>
   </div>
   <div class="card-action">
     <a href="{% url 'cars_update' car.id %}">Edit</a>
