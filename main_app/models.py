@@ -29,12 +29,16 @@ class Comment(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        ordering = ['-created_at']
 
     def __str__(self):
         return self.commentBody
 
     def get_absolute_url(self):
         return reverse('detail', kwargs={'car_id': self.id})
+
+    
 
 class Photo(models.Model):
     url = models.CharField(max_length=200)

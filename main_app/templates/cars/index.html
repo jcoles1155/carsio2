@@ -2,6 +2,13 @@
 
 <h1>Car List</h1>
 
+<!-- <center>
+    <form action="{% url 'searchbar' %}" method="get">
+        <input type="text" name="search"/>
+        <button type="submit">Search</button>
+    </form>
+</center> -->
+
 {% for car in cars %}
 <div class="card">
   <a href="{% url 'detail' car.id %}">
