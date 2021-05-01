@@ -40,7 +40,7 @@ def about(request):
 @login_required
 def cars_index(request):
     cars = CarPost.objects.filter(user=request.user)
-    return render(request, 'cats/index.html', { 'cars': cars })
+    return render(request, 'cars/index.html', { 'cars': cars })
 
 @login_required
 def cars_detail(request, car_id):
