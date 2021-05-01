@@ -13,6 +13,8 @@ class CarPost(models.Model):
     body = models.CharField(max_length=50)
     description = models.CharField(max_length=250)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.title
@@ -24,6 +26,8 @@ class CarPost(models.Model):
 class Comment(models.Model):
     commentBody = models.CharField(max_length=250)
     car = models.ForeignKey(CarPost, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
 
     def __str__(self):
@@ -35,6 +39,8 @@ class Comment(models.Model):
 class Photo(models.Model):
     url = models.CharField(max_length=200)
     car = models.ForeignKey(CarPost, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f"Photo for car_id: {self.car_id} @{self.url}"
