@@ -53,7 +53,7 @@ def cars_detail(request, car_id):
 
 class CarCreate(LoginRequiredMixin, CreateView):
     model = CarPost
-    fields = '__all__'
+    fields = ['title', 'make', 'carModel', 'color', 'year', 'body', 'description']
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
@@ -97,9 +97,9 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-        return redirect('index')
-    else:
-        error_message = 'Invalid sign up - try again'
+            return redirect('index')
+        else:
+            error_message = 'Invalid sign up - try again'
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
