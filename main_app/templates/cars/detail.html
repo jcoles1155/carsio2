@@ -47,7 +47,9 @@
       <tbody>
         {% for comment in car.comment_set.all %}
         <tr>
-          <td>{{comment.commentBody}} - {{comment.created_at}}</td>
+          <td>
+            {{comment.commentBody}} - {{comment.created_at}} by {{car.user}}
+          </td>
         </tr>
         {% endfor %}
       </tbody>
