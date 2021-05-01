@@ -2,12 +2,14 @@
 
 <h1>Car List</h1>
 
-<!-- <center>
-    <form action="{% url 'searchbar' %}" method="get">
-        <input type="text" name="search"/>
-        <button type="submit">Search</button>
-    </form>
-</center> -->
+<div>
+    <div>
+        <form class="form" action="" method="get" id="search_form">
+            <input type="search" id="search">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+    </div>
+</div>
 
 {% for car in cars %}
 <div class="card">
@@ -24,4 +26,9 @@
     </div>
   </a>
 </div>
-{% endfor %} {% endblock %}
+{% empty %}
+<p>No Cars</p>
+{% endfor %} 
+
+
+{% endblock %}
