@@ -10,6 +10,7 @@
     <p>Body: {{ car.body }}</p>
     <p>Color: {{ car.color }}</p>
     <p>Description: {{ car.description }}</p>
+    <p>Created on: {{ car.created_at }}</p>
   </div>
   <div class="card-action">
     <a href="{% url 'cars_update' car.id %}">Edit</a>
@@ -45,7 +46,7 @@
       <tbody>
         {% for comment in car.comment_set.all %}
         <tr>
-          <td>{{comment.commentBody}}</td>
+          <td>{{comment.commentBody}} - {{comment.created_at}}</td>
         </tr>
         {% endfor %}
       </tbody>
