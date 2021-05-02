@@ -43,6 +43,10 @@ def profile(request):
 # # route for cars index
 @login_required
 def cars_index(request):
+    print('testing', request.GET.get('make'))
+    if request.GET.get('make'):
+        cars = CarPost.objects.filter(make=request.GET.get('make'))
+        return render(request, 'cars/index.html', { 'cars': cars })
     cars = CarPost.objects.filter(user=request.user)
     return render(request, 'cars/index.html', { 'cars': cars })
 
@@ -107,3 +111,16 @@ def signup(request):
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context) 
+
+# class CarsFilter(BaseFilter):
+#     search_fields = {
+#         'search_text' : ['title', 'make', 'carModel', 'color', 'body', 'description', 'user'],
+#         'search_year_exact' : { 'operator' : '__exact', 'fields' : ['year'] }
+#     }
+
+# class CarsSearchList(SearchListView):
+#     model = CarPost
+#     paginate_by = 10
+#     template_name = "cars/index.html"
+#     form_class = SearchForm
+#     filter_class = CarsFilter
