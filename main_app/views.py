@@ -36,6 +36,10 @@ def home(request):
 def about(request):
     return render(request, 'about.html')
 
+def profile(request):
+    return render(request, 'profile.html')
+
+
 # # route for cars index
 @login_required
 def cars_index(request):
