@@ -22,6 +22,22 @@ class CarPost(models.Model):
     def get_absolute_url(self):
         return reverse('detail', kwargs={'car_id': self.id})
 
+class UserProfile(models.Model):
+    proName = models.CharField(max_length=50)
+    proLoc = models.CharField(max_length=50)
+    proOcc = models.CharField(max_length=50)
+    age = models.CharField(max_length=50)
+    favoriteCar = models.CharField(max_length=50)
+    carsOwned = models.CharField(max_length=50)
+    carsOwn = models.CharField(max_length=250)
+
+
+    def __str__(self):
+        return self.proName
+
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'profile_id': self.id})
+
 
 class Comment(models.Model):
     commentBody = models.CharField(max_length=250)

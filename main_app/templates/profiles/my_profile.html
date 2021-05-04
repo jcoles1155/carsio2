@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block content %} {% if user.is_authenticated %}
+<h1>{{user.username}}</h1>
+<hr />
+<div class="card-content">
+  <p>Name:</p>
+  <p>Location:</p>
+  <p>Occupation:</p>
+  <p>Age:</p>
+  <p>Favorite Car:</p>
+  <p>Cars Owned:</p>
+  <p>Cars Currently Own:</p>
+</div>
+<hr />
+<div class="card-action">
+  <a href="{% url 'profile_update' user.id %}">Edit</a>
+</div>
+{% endif %} {% endblock %}

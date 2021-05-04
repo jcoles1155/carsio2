@@ -9,7 +9,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import CommentForm
 import uuid
 import boto3
-from .models import CarPost, Photo
+from .models import CarPost, Photo, UserProfile
 
 S3_BASE_URL = 'https://s3-us-west-1.amazonaws.com/'
 BUCKET = 'carsio'
@@ -37,7 +37,7 @@ def about(request):
     return render(request, 'about.html')
 
 def profile(request):
-    return render(request, 'profile.html')
+    return render(request, 'profiles/my_profile.html')
 
 
 # # route for cars index
@@ -59,6 +59,10 @@ def cars_detail(request, car_id):
         'car': car, 'comment_form': comment_form 
     })
 
+def profiles_index(request):
+    profiles = UserProfile.objects.filter(user=request.user)
+    return render(request, 'profiles/my_profile.html', { 'profiles': profiles })
+
 class CarCreate(LoginRequiredMixin, CreateView):
     model = CarPost
     fields = ['title', 'make', 'carModel', 'color', 'year', 'body', 'description']
@@ -73,6 +77,11 @@ class CarUpdate(LoginRequiredMixin, UpdateView):
 class CarDelete(LoginRequiredMixin, DeleteView):
     model = CarPost
     success_url = '/cars/'
+
+class ProfileUpdate(LoginRequiredMixin, UpdateView):
+    model = UserProfile
+    fields = ['proName', 'proLoc', 'proOcc', 'age', 'favoriteCar', 'carsOwned', 'carsOwn']
+    
 
 @login_required
 def add_comment(request, car_id):
