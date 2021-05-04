@@ -74,7 +74,7 @@ class CarDelete(LoginRequiredMixin, DeleteView):
     model = CarPost
     success_url = '/cars/'
 
-class ProfileUpdate(LoginRequiredMixin, UpdateView):
+class ProfileUpdate(LoginRequiredMixin, CreateView):
     model = UserProfile
     fields = ['proName', 'proLoc', 'proOcc', 'age', 'favoriteCar', 'carsOwned', 'carsOwn']
     

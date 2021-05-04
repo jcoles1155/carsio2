@@ -28,7 +28,7 @@ class UserProfile(models.Model):
     proOcc = models.CharField(max_length=50)
     age = models.CharField(max_length=50)
     favoriteCar = models.CharField(max_length=50)
-    carsOwned = models.CharField(max_length=50)
+    carsOwned = models.CharField(max_length=250)
     carsOwn = models.CharField(max_length=250)
 
 
