@@ -2,6 +2,15 @@
 
 <h1>Car List</h1>
 
+<div>
+    <div>
+        <form class="form" action="" method="get" id="search_form">
+            <input type="search" id="search">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+    </div>
+</div>
+
 {% for car in cars %}
 <div class="card">
   <a href="{% url 'detail' car.id %}">
@@ -17,4 +26,9 @@
     </div>
   </a>
 </div>
-{% endfor %} {% endblock %}
+{% empty %}
+<p>No Cars</p>
+{% endfor %} 
+
+
+{% endblock %}
