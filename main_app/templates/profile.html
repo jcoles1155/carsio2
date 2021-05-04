@@ -1,6 +1,18 @@
-{% extends 'base.html' %} {% block content %}
-
-<h1>User Name</h1>
+{% extends 'base.html' %} {% block content %} {% if user.is_authenticated %}
+<h1>{{user.username}}</h1>
 <hr />
-<p>All the cool things about the user will go here.</p>
-{% if user.is_authenticated %} {{user.username}} {% endif %} {% endblock %}
+<div class="card-content">
+  <span class="card-title">{{ car.make }} {{ car.carModel }}</span>
+  <p>Name:</p>
+  <p>Location:</p>
+  <p>Occupation:</p>
+  <p>Age:</p>
+  <p>Favorite Car:</p>
+  <p>Cars Owned:</p>
+  <p>Cars Currently Own:</p>
+</div>
+<hr />
+<div class="card-action">
+  <a href>Edit</a>
+</div>
+{% endif %} {% endblock %}
