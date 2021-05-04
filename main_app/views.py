@@ -37,7 +37,7 @@ def about(request):
     return render(request, 'about.html')
 
 def profile(request):
-    return render(request, 'profiles/my_profile.html')
+    return render(request, 'profile/profile.html')
 
 
 # # route for cars index
@@ -60,8 +60,12 @@ def cars_detail(request, car_id):
     })
 
 def profiles_index(request):
-    profiles = UserProfile.objects.filter(user=request.user)
-    return render(request, 'profiles/my_profile.html', { 'profiles': profiles })
+    profile = UserProfile.objects.filter(user=request.user)
+    return render(request, 'profile/profile.html', { 'profile': profile })
+
+class UserProfileUpdate(LoginRequiredMixin, UpdateView):
+    model = UserProfile
+    fields = ['proName', 'proLoc', 'proOcc', 'age', 'favoriteCar', 'carsOwned', 'carsOwn']
 
 class CarCreate(LoginRequiredMixin, CreateView):
     model = CarPost
@@ -77,11 +81,6 @@ class CarUpdate(LoginRequiredMixin, UpdateView):
 class CarDelete(LoginRequiredMixin, DeleteView):
     model = CarPost
     success_url = '/cars/'
-
-class ProfileUpdate(LoginRequiredMixin, UpdateView):
-    model = UserProfile
-    fields = ['proName', 'proLoc', 'proOcc', 'age', 'favoriteCar', 'carsOwned', 'carsOwn']
-    
 
 @login_required
 def add_comment(request, car_id):
