@@ -5,7 +5,13 @@
 <div>
     <div>
         <form class="form" action="" method="get" id="search_form">
-            <input type="search" id="search">
+            {% comment %} <label>
+              <input type="checkbox" value="subaru" id="model" />
+              <span>Red</span>
+            </label> {% endcomment %}
+            <input type="text" id="make" placeholder="make" />
+            <input type="text" id="color" placeholder="color" />
+            <br/>
             <button type="submit" class="btn btn-primary">Search</button>
         </form>
     </div>

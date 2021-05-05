@@ -50,8 +50,8 @@ def profile(request, profile_id):
 @login_required
 def cars_index(request):
     print('testing', request.GET.get('make'))
-    if request.GET.get('make'):
-        cars = CarPost.objects.filter(make=request.GET.get('make'))
+    if request.GET.get('make') and request.GET.get('color'):
+        cars = CarPost.objects.filter(make=request.GET.get('make'), color=request.GET.get('color'))
         return render(request, 'cars/index.html', { 'cars': cars })
     cars = CarPost.objects.filter(user=request.user)
     return render(request, 'cars/index.html', { 'cars': cars })
