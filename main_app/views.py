@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 # from .models import CarPost
+from django.contrib.auth.models import User
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
@@ -9,7 +10,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import CommentForm
 import uuid
 import boto3
-from .models import CarPost, Photo
+from .models import CarPost, Photo, UserProfile
 
 S3_BASE_URL = 'https://s3-us-west-1.amazonaws.com/'
 BUCKET = 'carsio'
@@ -36,8 +37,13 @@ def home(request):
 def about(request):
     return render(request, 'about.html')
 
-def profile(request):
-    return render(request, 'profile.html')
+def profile(request, profile_id):
+    profile = UserProfile.objects.get(id=profile_id)
+    context = {
+        'profile': profile
+    }
+    print(profile)
+    return render(request, 'profile/profile.html', context)
 
 
 # # route for cars index
@@ -58,6 +64,14 @@ def cars_detail(request, car_id):
     return render(request, 'cars/detail.html', { 
         'car': car, 'comment_form': comment_form 
     })
+
+def profiles_index(request):
+    profile = UserProfile.objects.filter(user=request.user)
+    return render(request, 'profile/profile.html', { 'profile': profile })
+
+class UserProfileUpdate(LoginRequiredMixin, UpdateView):
+    model = UserProfile
+    fields = ['proName', 'proLoc', 'proOcc', 'age', 'favoriteCar', 'carsOwned', 'carsOwn']
 
 class CarCreate(LoginRequiredMixin, CreateView):
     model = CarPost
@@ -104,8 +118,12 @@ def signup(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
+            found_user = User.objects.get(id=user.id)
+            user_profile = UserProfile(user=found_user)
+            # user_profile.user = found_user
+            user_profile.save()
             login(request, user)
-            return redirect('index')
+            return redirect('profile_update', pk=user_profile.id)
         else:
             error_message = 'Invalid sign up - try again'
     form = UserCreationForm()
