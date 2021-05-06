@@ -39,21 +39,23 @@ def about(request):
 
 def profile(request, profile_id):
     profile = UserProfile.objects.get(id=profile_id)
+    cars = CarPost.objects.filter(user=request.user.id)
     context = {
-        'profile': profile
+        'profile': profile,
+        'cars': cars
     }
     print(profile)
     return render(request, 'profile/profile.html', context)
 
 
 # # route for cars index
-@login_required
+
 def cars_index(request):
     print('testing', request.GET.get('make'))
     if request.GET.get('make'):
         cars = CarPost.objects.filter(make=request.GET.get('make'))
         return render(request, 'cars/index.html', { 'cars': cars })
-    cars = CarPost.objects.filter(user=request.user)
+    cars = CarPost.objects.all()
     return render(request, 'cars/index.html', { 'cars': cars })
 
 @login_required
@@ -66,8 +68,16 @@ def cars_detail(request, car_id):
     })
 
 def profiles_index(request):
+    cars = CarPost.objects.filter(user=request.user.id)
+    cars = []
     profile = UserProfile.objects.filter(user=request.user)
-    return render(request, 'profile/profile.html', { 'profile': profile })
+    print('testing', cars)
+    return render(request, 'profile/profile.html', { 'profile': profile, 'cars': cars })
+
+# def profile_cars(request):
+#     cars = CarPost.objects.filter(user=request.user)
+#     print('testing', cars)
+#     return render(request, 'profile/profile.html', { 'cars': cars })
 
 class UserProfileUpdate(LoginRequiredMixin, UpdateView):
     model = UserProfile
