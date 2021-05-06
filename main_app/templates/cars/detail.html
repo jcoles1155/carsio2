@@ -13,9 +13,14 @@
     <p>Created on: {{ car.created_at }}</p>
     <p>Post by: {{ user.username }}</p>
   </div>
+
   <div class="card-action">
+    {% if user.id == car.user.id %}
     <a href="{% url 'cars_update' car.id %}">Edit</a>
     <a href="{% url 'cars_delete' car.id %}">Delete</a>
+    {% else %}
+    <h2>No Permissions</h2>
+    {% endif %}
   </div>
   {% for photo in car.photo_set.all %}
   <img class="responsive-img card-panel" src="{{photo.url}}" />
