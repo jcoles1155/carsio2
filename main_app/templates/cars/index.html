@@ -2,19 +2,33 @@
 
 <h1>Car List</h1>
 
+<div>
+    <div>
+        <form class="form" action="" method="get" id="search_form">
+            <input type="search" id="search">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+    </div>
+</div>
+
 {% for car in cars %}
 <div class="card">
   <a href="{% url 'detail' car.id %}">
     <div class="card-content">
-      <span class="card-title">{{ car.manufacturer }} {{ car.carModel }}</span>
+      <span class="card-title">{{ car.make }} {{ car.carModel }}</span>
       <p>Model: {{ car.carModel }}</p>
       <p>Description: {{ car.description }}</p>
       <p>Year: {{ car.year }}</p>
       <p>Color: {{ car.color }}</p>
       <p>Body: {{ car.body }}</p>
       <p>Created on: {{ car.created_at }}</p>
-      <p>Post by: {{ car.user }}</p>
+      <p>Post by: {{ user.username }}</p>
     </div>
   </a>
 </div>
-{% endfor %} {% endblock %}
+{% empty %}
+<p>No Cars</p>
+{% endfor %} 
+
+
+{% endblock %}
