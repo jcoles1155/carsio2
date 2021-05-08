@@ -13,7 +13,7 @@ import boto3
 from .models import CarPost, Photo, UserProfile
 
 S3_BASE_URL = 'https://s3-us-west-1.amazonaws.com/'
-BUCKET = 'carsio'
+BUCKET = 'carsio2'
 
 # class Car:  # Note that parens are optional if not inheriting from another class
 #     def __init__(self, manufacturer, year, carModel, color, body, isAvailable):
