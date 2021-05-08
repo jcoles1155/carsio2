@@ -11,7 +11,7 @@
     <p>Color: {{ car.color }}</p>
     <p>Description: {{ car.description }}</p>
     <p>Created on: {{ car.created_at }}</p>
-    <p>Post by: {{ user.username }}</p>
+    <p>Post by: {{ car.user.username }}</p>
   </div>
 
   <div class="card-action">
@@ -19,7 +19,7 @@
     <a href="{% url 'cars_update' car.id %}">Edit</a>
     <a href="{% url 'cars_delete' car.id %}">Delete</a>
     {% else %}
-    <h2>No Permissions</h2>
+    <h2></h2>
     {% endif %}
   </div>
   {% for photo in car.photo_set.all %}
@@ -33,10 +33,13 @@
     method="POST"
     class="card-panel"
   >
-    {% csrf_token %}
+    {% if user.id == car.user.id %} {% csrf_token %}
     <input type="file" name="photo-file" />
     <br /><br />
     <input type="submit" class="btn" value="Upload Photo" />
+    {% else %}
+    <h2></h2>
+    {% endif %}
   </form>
 
   <div class="card-content">
@@ -56,7 +59,7 @@
           <tr>
             <td>
               {{comment.commentBody}} - {{comment.created_at}} by
-              {{user.username}}
+              {{car.user.username}}
             </td>
           </tr>
           {% endfor %}
