@@ -1,12 +1,10 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1>Car List</h1>
-
 <div>
-    <div>
+    <div class="search_bar">
         <form class="form" action="" method="get" id="search_form">
             <input type="search" id="search">
-            <button type="submit" class="btn btn-primary">Search</button>
+            <button type="submit" class="btn btn-primary search">Search</button>
         </form>
     </div>
 </div>
@@ -14,7 +12,7 @@
 {% for car in cars %}
 <div class="card">
   <a href="{% url 'detail' car.id %}">
-    <div class="card-content">
+    <div class="card-content car">
       <span class="card-title">{{ car.make }} {{ car.carModel }}</span>
       <p>Model: {{ car.carModel }}</p>
       <p>Description: {{ car.description }}</p>

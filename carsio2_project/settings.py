@@ -79,6 +79,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'carsio2',
+        'USER': config('USER'),
+        'PASSWORD': config('PASSWORD'),
     }
 }
 
