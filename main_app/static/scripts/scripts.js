@@ -14,3 +14,4 @@ function onSubmit(e) {
 
 searchForm.addEventListener('submit', onSubmit)
 
+// if (window.location.href1 == 'http://localhost:8000/cars/' || window.location.href1 == 'http://localhost:8000/cars/')
