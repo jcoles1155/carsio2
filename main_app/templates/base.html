@@ -32,7 +32,7 @@
             <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Carsio</a></li>
           </ul>
           <ul class="right">
-            <li><a href="{% url 'about' %}" >About</a></li>
+            <li><a href="{% url 'about' %}" class="about">About</a></li>
             {% if user.is_authenticated %}
             <li><a href="{% url 'cars_create' %}">Add a Car</a></li>
             <li><a href="{% url 'index' %}">Cars List</a></li>
@@ -51,4 +51,8 @@
       <div class="right">All Rights Reserved, &copy; 2021 Carsio &nbsp;</div>
     </footer>
   </body>
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
 </html>
