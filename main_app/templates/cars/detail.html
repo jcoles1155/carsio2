@@ -10,12 +10,10 @@
     <p>Description: {{ car.description }}</p>
     <p>Created on: {{ car.created_at }}</p>
     <p>Post by: {{ car.user.username }}</p>
-  </div>
 
-  <div class="card-action">
     {% if user.id == car.user.id %}
-    <a href="{% url 'cars_update' car.id %}">Edit</a>
-    <a href="{% url 'cars_delete' car.id %}">Delete</a>
+    <a href="{% url 'cars_update' car.id %}" class="editBtn">Edit</a>
+    <a href="{% url 'cars_delete' car.id %}" class="editBtn">Delete</a>
     {% else %}
     <h2></h2>
     {% endif %}
