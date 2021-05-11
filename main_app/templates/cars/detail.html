@@ -1,10 +1,8 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1>Car Details</h1>
-
-<div class="card">
-  <div class="card-content">
-    <span class="card-title">{{ car.make }} {{ car.carModel }}</span>
+<div class="card detail">
+  <div class="card-content car carDetail">
+    <span class="card-title carDetail">{{ car.make }} {{ car.carModel }}</span>
     <p>Year: {{ car.year }}</p>
     <p>Model: {{ car.carModel }}</p>
     <p>Body: {{ car.body }}</p>

@@ -43,6 +43,17 @@ footer {
     margin-top: 10vh;
 }
 
+.detail {
+    background-color: #F3ECE5 !important;
+    box-shadow: none !important;
+}
+
+.carDetail {
+    margin-bottom: 100px;
+}
+
+/* Work in Progress */
 .active {
     background-color: #FECB5F;
 }
+/* Work in Progress */

@@ -14,6 +14,8 @@ function onSubmit(e) {
 
 searchForm.addEventListener('submit', onSubmit)
 
+
+// Work in Progress
 jQuery(function($) {
     var path = window.location.href;
 
