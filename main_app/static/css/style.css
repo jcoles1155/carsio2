@@ -81,6 +81,39 @@ footer {
 .photoBtn {
     background-color: #63CCC8 !important;
 }
+
+.comments {
+    background-color: #FA7E5C !important;
+    color: white !important;
+}
+
+.commentForm {
+    margin-bottom: 20px;;
+}
+
+.commentForm > p > label {
+    color: white !important;
+}
+
+.commentForm > p > input {
+    border-bottom: 0.2vh solid white !important;
+}
+
+.comment {
+    background-color: #fd9a7f;
+}
+
+.comment > th {
+    display: block !important;
+}
+
+.commentHead {
+    background-color: #ffc6b6;
+}
+
+.commentFoot {
+    border-bottom: 0.5vh solid white !important;
+}
 /* Detail Page END */
 
 /* Work in Progress */

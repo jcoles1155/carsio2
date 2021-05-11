@@ -38,25 +38,22 @@
     {% endif %}
   </form>
 
-  <div class="card-content">
+  <div class="card-content comments">
     <div class="col s6">
-      <form action="{% url 'add_comment' car.id %}" method="post">
+      <form class="commentForm" action="{% url 'add_comment' car.id %}" method="post">
         {% csrf_token %} {{ comment_form.as_p }}
-        <input type="submit" class="btn" value="Add a Comment!" />
+        <input type="submit" class="btn photoBtn" value="Add a Comment!" />
       </form>
-      <table class="striped">
-        <thead>
-          <tr>
-            <th>Comment</th>
-          </tr>
-        </thead>
+      <table>
         <tbody>
           {% for comment in car.comment_set.all %}
-          <tr>
-            <td>
-              {{comment.commentBody}} - {{comment.created_at}} by
-              {{car.user.username}}
-            </td>
+          <tr class="comment">
+            <th class="commentHead">
+              {{car.user.username}} at {{comment.created_at}}
+            </th>
+            <th class="commentFoot">
+              {{comment.commentBody}}
+            </th>
           </tr>
           {% endfor %}
         </tbody>
