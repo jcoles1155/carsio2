@@ -2,7 +2,7 @@
 
 <div class="card detail">
   <div class="card-content car carDetail">
-    <span class="card-title carDetail">{{ car.make }} {{ car.carModel }}</span>
+    <span class="card-title">{{ car.make }} {{ car.carModel }}</span>
     <p>Year: {{ car.year }}</p>
     <p>Model: {{ car.carModel }}</p>
     <p>Body: {{ car.body }}</p>
@@ -21,18 +21,18 @@
   {% for photo in car.photo_set.all %}
   <img class="responsive-img card-panel" src="{{photo.url}}" />
   {% empty %}
-  <div class="card-panel teal-text center-align">No Photos Uploaded</div>
+  <div class="card-panel center-align noPhoto">No Photos Uploaded</div>
   {% endfor %}
   <form
     action="{% url 'add_photo' car.id %}"
     enctype="multipart/form-data"
     method="POST"
-    class="card-panel"
+    class="card-panel photoForm"
   >
     {% if user.id == car.user.id %} {% csrf_token %}
     <input type="file" name="photo-file" />
     <br /><br />
-    <input type="submit" class="btn" value="Upload Photo" />
+    <input type="submit" class="btn photoBtn" value="Upload Photo" />
     {% else %}
     <h2></h2>
     {% endif %}

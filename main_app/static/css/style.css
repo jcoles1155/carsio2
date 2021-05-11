@@ -43,13 +43,14 @@ footer {
     margin-top: 10vh;
 }
 
+/* Detail Page */
 .detail {
     background-color: #F3ECE5 !important;
     box-shadow: none !important;
 }
 
 .carDetail {
-    margin-bottom: 100px;
+    margin-top: 4vh;
 }
 
 .editDetail {
@@ -67,8 +68,23 @@ footer {
     margin: 15px 10px 0 0;
 }
 
+.noPhoto {
+    background-color: #FA7E5C !important;
+    color: white !important;
+}
+
+.photoForm {
+    background-color: #FA7E5C !important;
+    color: white !important;
+}
+
+.photoBtn {
+    background-color: #63CCC8 !important;
+}
+/* Detail Page END */
+
 /* Work in Progress */
 .active {
     background-color: #FECB5F;
 }
-/* Work in Progress */
+/* Work in Progress END */
