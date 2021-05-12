@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %} {% if user.is_authenticated %}
 <h1>{{user.username}}</h1>
 <hr />
-<div class="card-content">
+<div class="card-content profile">
   <p>Name: {{profile.proName}}</p>
   <p>Location: {{profile.proLoc}}</p>
   <p>Occupation: {{profile.proOcc}}</p>
@@ -9,17 +9,15 @@
   <p>Favorite Car: {{profile.favoriteCar}}</p>
   <p>Cars Owned: {{profile.carsOwned}}</p>
   <p>Cars Currently Own: {{profile.carsOwn}}</p>
+  <a class="editBtn profileBtn" href="{% url 'profile_update' user.id %}">Update</a>
 </div>
 <hr />
-<div class="card-action">
-  <a href="{% url 'profile_update' user.id %}">Update</a>
-</div>
 {% endif %} 
 
 {% for car in cars %}
 <div class="card">
   <a href="{% url 'detail' car.id %}">
-    <div class="card-content">
+    <div class="card-content car">
       <span class="card-title">{{ car.make }} {{ car.carModel }}</span>
       <p>Model: {{ car.carModel }}</p>
       <p>Description: {{ car.description }}</p>

@@ -109,6 +109,8 @@ footer {
 
 .commentHead {
     background-color: #ffc6b6;
+    font-size: 20px;
+    color: rgb(95, 95, 95);
 }
 
 .commentFoot {
@@ -128,6 +130,18 @@ footer {
     border-radius: 100%;
 }
 /* Team END */
+
+/* Profile Page */
+.profile > p {
+    background-color: #e0d9d2;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.profileBtn {
+    margin: 0;
+}
+/* Profile Page END */
 
 /* Work in Progress */
 .active {
