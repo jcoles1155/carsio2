@@ -14,4 +14,14 @@ function onSubmit(e) {
 
 searchForm.addEventListener('submit', onSubmit)
 
-// if (window.location.href1 == 'http://localhost:8000/cars/' || window.location.href1 == 'http://localhost:8000/cars/')
+
+// Work in Progress
+jQuery(function($) {
+    var path = window.location.href;
+
+    $('ul a').each(function() {
+        if(this.href === path) {
+            $(this).addClass('active');
+        };
+    });
+});

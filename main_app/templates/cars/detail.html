@@ -1,9 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1>Car Details</h1>
-
-<div class="card">
-  <div class="card-content">
+<div class="card detail">
+  <div class="card-content car carDetail">
     <span class="card-title">{{ car.make }} {{ car.carModel }}</span>
     <p>Year: {{ car.year }}</p>
     <p>Model: {{ car.carModel }}</p>
@@ -12,12 +10,10 @@
     <p>Description: {{ car.description }}</p>
     <p>Created on: {{ car.created_at }}</p>
     <p>Post by: {{ car.user.username }}</p>
-  </div>
 
-  <div class="card-action">
     {% if user.id == car.user.id %}
-    <a href="{% url 'cars_update' car.id %}">Edit</a>
-    <a href="{% url 'cars_delete' car.id %}">Delete</a>
+    <a href="{% url 'cars_update' car.id %}" class="editBtn">Edit</a>
+    <a href="{% url 'cars_delete' car.id %}" class="editBtn">Delete</a>
     {% else %}
     <h2></h2>
     {% endif %}
@@ -25,42 +21,39 @@
   {% for photo in car.photo_set.all %}
   <img class="responsive-img card-panel" src="{{photo.url}}" />
   {% empty %}
-  <div class="card-panel teal-text center-align">No Photos Uploaded</div>
+  <div class="card-panel center-align noPhoto">No Photos Uploaded</div>
   {% endfor %}
   <form
     action="{% url 'add_photo' car.id %}"
     enctype="multipart/form-data"
     method="POST"
-    class="card-panel"
+    class="card-panel photoForm"
   >
     {% if user.id == car.user.id %} {% csrf_token %}
     <input type="file" name="photo-file" />
     <br /><br />
-    <input type="submit" class="btn" value="Upload Photo" />
+    <input type="submit" class="btn photoBtn" value="Upload Photo" />
     {% else %}
     <h2></h2>
     {% endif %}
   </form>
 
-  <div class="card-content">
+  <div class="card-content comments">
     <div class="col s6">
-      <form action="{% url 'add_comment' car.id %}" method="post">
+      <form class="commentForm" action="{% url 'add_comment' car.id %}" method="post">
         {% csrf_token %} {{ comment_form.as_p }}
-        <input type="submit" class="btn" value="Add a Comment!" />
+        <input type="submit" class="btn photoBtn" value="Add a Comment!" />
       </form>
-      <table class="striped">
-        <thead>
-          <tr>
-            <th>Comment</th>
-          </tr>
-        </thead>
+      <table>
         <tbody>
           {% for comment in car.comment_set.all %}
-          <tr>
-            <td>
-              {{comment.commentBody}} - {{comment.created_at}} by
-              {{car.user.username}}
-            </td>
+          <tr class="comment">
+            <th class="commentHead">
+              {{car.user.username}} at {{comment.created_at}}
+            </th>
+            <th class="commentFoot">
+              {{comment.commentBody}}
+            </th>
           </tr>
           {% endfor %}
         </tbody>

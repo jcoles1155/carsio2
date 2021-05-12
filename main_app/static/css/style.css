@@ -32,7 +32,7 @@ footer {
     font-family: 'Abril Fatface', cursive;
     color: white;
     padding-bottom: 10px;
-    border-bottom: 0.5vh solid white;
+    border-bottom: 0.4vh solid white;
 }
 
 .search {
@@ -43,6 +43,81 @@ footer {
     margin-top: 10vh;
 }
 
-.litup {
+/* Detail Page */
+.detail {
+    background-color: #F3ECE5 !important;
+    box-shadow: none !important;
+}
+
+.carDetail {
+    margin-top: 4vh;
+}
+
+.editDetail {
+    background-color: #ffae98 !important;
+}
+
+.editBtn {
+    display: inline-flex;
+    background-color: #63CCC8 !important;
+    color: white !important;
+    padding: 10px 20px 10px 20px;
+    border-radius: 3px !important;
+    align-self: flex-end !important;
+    width: fit-content;
+    margin: 15px 10px 0 0;
+}
+
+.noPhoto {
+    background-color: #FA7E5C !important;
+    color: white !important;
+}
+
+.photoForm {
+    background-color: #FA7E5C !important;
+    color: white !important;
+}
+
+.photoBtn {
+    background-color: #63CCC8 !important;
+}
+
+.comments {
+    background-color: #FA7E5C !important;
+    color: white !important;
+}
+
+.commentForm {
+    margin-bottom: 20px;;
+}
+
+.commentForm > p > label {
+    color: white !important;
+}
+
+.commentForm > p > input {
+    border-bottom: 0.2vh solid white !important;
+}
+
+.comment {
+    background-color: #fd9a7f;
+}
+
+.comment > th {
+    display: block !important;
+}
+
+.commentHead {
+    background-color: #ffc6b6;
+}
+
+.commentFoot {
+    border-bottom: 0.5vh solid white !important;
+}
+/* Detail Page END */
+
+/* Work in Progress */
+.active {
     background-color: #FECB5F;
 }
+/* Work in Progress END */
