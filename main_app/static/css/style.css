@@ -109,12 +109,39 @@ footer {
 
 .commentHead {
     background-color: #ffc6b6;
+    font-size: 20px;
+    color: rgb(95, 95, 95);
 }
 
 .commentFoot {
     border-bottom: 0.5vh solid white !important;
 }
 /* Detail Page END */
+
+/* Team */
+.team {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr 2fr;
+}
+.team > img {
+    max-width: 20vh;
+    grid-row: 1/3;
+    border-radius: 100%;
+}
+/* Team END */
+
+/* Profile Page */
+.profile > p {
+    background-color: #e0d9d2;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.profileBtn {
+    margin: 0;
+}
+/* Profile Page END */
 
 /* Work in Progress */
 .active {
