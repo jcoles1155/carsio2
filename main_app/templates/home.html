@@ -1,43 +1,67 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+
+{% load static %}
+
+{% block content %}
 
 <h1>Meet the Team</h1>
 
 <hr />
-<h5>Nicholas "JC" Coles</h5>
-<p>
-  Location:
-  <br />
-  About Me:
-  <br />
-  Favorite Cars:
-</p>
+
+<div class="team">
+  <img src="{% static 'images/JC.png' %}" >
+  <h5>Nicholas "JC" Coles</h5>
+  <p>
+    Location:
+    <br />
+    About Me:
+    <br />
+    Favorite Cars:
+  </p>
+</div>
+
 <hr />
-<h5>Greg Harper</h5>
-<p>
-  Location:
-  <br />
-  About Me:
-  <br />
-  Favorite Cars:
-</p>
+
+<div class="team">
+  <img src="{% static 'images/Greg.png' %}" >
+  <h5>Greg Harper</h5>
+  <p>
+    Location:
+    <br />
+    About Me:
+    <br />
+    Favorite Cars:
+  </p>
+</div>
+
 <hr />
-<h5>Tucker Craig</h5>
-<p>
-  Location:
-  <br />
-  About Me:
-  <br />
-  Favorite Cars:
-</p>
+
+<div class="team">
+  <img src="{% static 'images/Tucker.png' %}" >
+  <h5>Tucker Craig</h5>
+  <p>
+    Location: Asheville, NC
+    <br />
+    About Me: I am a Software Engineer with a passion to turn ideas into reality.
+    <br />
+    Favorite Cars: 2017 Subaru BRZ, 2006 Nissan 350Z
+  </p>
+</div>
+
 <hr />
-<h5>James Kim</h5>
-<p>
-  Location: Glendale, CA
-  <br />
-  About Me: I am a software engineer with a background in construction project
-  management. I love dogs and Cars!
-  <br />
-  Favorite Cars: Porsche Carrera, Acura Integra Type R
-</p>
+
+<div class="team">
+  <img src="{% static 'images/James.png' %}" >
+  <h5>James Kim</h5>
+  <p>
+    Location: Glendale, CA
+    <br />
+    About Me: I am a software engineer with a background in construction project
+    management. I love dogs and Cars!
+    <br />
+    Favorite Cars: Porsche Carrera, Acura Integra Type R
+  </p>
+</div>
+
 <hr />
 {% endblock %}
