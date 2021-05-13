@@ -57,6 +57,6 @@ Nicholas JC Coles: <a href="https://www.linkedin.com/in/nicholas-jc-coles-314495
 
 James Jin Hyung Kim: <a href="https://www.linkedin.com/in/jinhkim87/" rel="nofollow">LinkedIn</a> / <a href="https://github.com/jinhkim87">GitHub</a>
 
-Tucker Craig: <a href="https://www.linkedin.com/in/tucker-m-craig/" rel="nofollow">LinkedIn</a> / <a href="hhttps://github.com/TuckTuckC">GitHub</a>
+Tucker Craig: <a href="https://www.linkedin.com/in/tucker-m-craig/" rel="nofollow">LinkedIn</a> / <a href="https://github.com/TuckTuckC">GitHub</a>
 
 Gregory Harper: <a href="https://www.linkedin.com/in/gregory-harper-71592067/" rel="nofollow">LinkedIn</a> / <a href="https://github.com/gharper235">GitHub</a>
