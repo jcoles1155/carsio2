@@ -49,6 +49,7 @@ AAU I want to ...
 - Python
 - Django
 - Postgres
+- JavaScript
 
 # Coding Team
 
