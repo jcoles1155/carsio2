@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 class CarPost(models.Model):
     title = models.CharField(max_length=50)
     make = models.CharField(max_length=50)
-    carModel = models.CharField(max_length=100)
+    carModel = models.CharField(max_length=100, verbose_name = 'Model')
     color = models.CharField(max_length=50)
     year = models.IntegerField()
     body = models.CharField(max_length=50)
