@@ -52,11 +52,18 @@ def profile(request, profile_id):
 
 def cars_index(request):
     print('testing', request.GET.get('make'))
-    if request.GET.get('make'):
-        cars = CarPost.objects.filter(make=request.GET.get('make'))
+    if request.method == 'POST':
+        make = request.POST.get('make')
+        carModel = request.POST.get('carModel')
+        color = request.POST.get('color')
+        year = request.POST.get('year')
+        print("fields", make, carModel, color, year)
+        cars = CarPost.objects.filter(make__contains=make, carModel__contains=carModel, color__contains=color, year__contains=year)
+        # print(make, carModel, color, year, cars)
         return render(request, 'cars/index.html', { 'cars': cars })
-    cars = CarPost.objects.all()
-    return render(request, 'cars/index.html', { 'cars': cars })
+    else:    
+        cars = CarPost.objects.all()
+        return render(request, 'cars/index.html', { 'cars': cars })
 
 @login_required
 def cars_detail(request, car_id):

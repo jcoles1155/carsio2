@@ -2,6 +2,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background-color: #F3ECE5;
 }
 
 main {
@@ -11,4 +12,139 @@ main {
 footer {
     padding-top: 0;
     text-align: right;
+    background-color: #147587 !important;
 }
+
+.navbar {
+    background-color: #147587 !important;
+}
+
+.car {
+    background-color: #FA7E5C;
+}
+
+.car > p {
+    color: white;
+}
+
+.car > span {
+    font-size: 40px !important;
+    font-family: 'Abril Fatface', cursive;
+    color: white;
+    padding-bottom: 10px;
+    border-bottom: 0.4vh solid white;
+}
+
+.search {
+    background-color: #63CCC8 !important;
+}
+
+.search_bar {
+    margin-top: 10vh;
+}
+
+/* Detail Page */
+.detail {
+    background-color: #F3ECE5 !important;
+    box-shadow: none !important;
+}
+
+.carDetail {
+    margin-top: 4vh;
+}
+
+.editDetail {
+    background-color: #ffae98 !important;
+}
+
+.editBtn {
+    display: inline-flex;
+    background-color: #63CCC8 !important;
+    color: white !important;
+    padding: 10px 20px 10px 20px;
+    border-radius: 3px !important;
+    align-self: flex-end !important;
+    width: fit-content;
+    margin: 15px 10px 0 0;
+}
+
+.noPhoto {
+    background-color: #FA7E5C !important;
+    color: white !important;
+}
+
+.photoForm {
+    background-color: #FA7E5C !important;
+    color: white !important;
+}
+
+.photoBtn {
+    background-color: #63CCC8 !important;
+}
+
+.comments {
+    background-color: #FA7E5C !important;
+    color: white !important;
+}
+
+.commentForm {
+    margin-bottom: 20px;;
+}
+
+.commentForm > p > label {
+    color: white !important;
+}
+
+.commentForm > p > input {
+    border-bottom: 0.2vh solid white !important;
+}
+
+.comment {
+    background-color: #fd9a7f;
+}
+
+.comment > th {
+    display: block !important;
+}
+
+.commentHead {
+    background-color: #ffc6b6;
+    font-size: 20px;
+    color: rgb(95, 95, 95);
+}
+
+.commentFoot {
+    border-bottom: 0.5vh solid white !important;
+}
+/* Detail Page END */
+
+/* Team */
+.team {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr 2fr;
+}
+.team > img {
+    max-width: 20vh;
+    grid-row: 1/3;
+    border-radius: 100%;
+}
+/* Team END */
+
+/* Profile Page */
+.profile > p {
+    background-color: #e0d9d2;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.profileBtn {
+    margin: 0;
+}
+/* Profile Page END */
+
+/* Work in Progress */
+.active {
+    background-color: #FECB5F;
+}
+/* Work in Progress END */

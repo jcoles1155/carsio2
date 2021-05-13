@@ -1,20 +1,33 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1>Car List</h1>
-
-<div>
-    <div>
+<!-- <div>
+    <div class="search_bar">
         <form class="form" action="" method="get" id="search_form">
-            <input type="search" id="search">
-            <button type="submit" class="btn btn-primary">Search</button>
+          <p>Search for a Car</p>
+            <input type="search" id="search" name="query">
+            <button type="submit" class="btn btn-primary search">Search</button>
         </form>
     </div>
+</div> -->
+
+<div>
+  <div class="search_bar">
+      <form action="{% url 'index' %}" method="POST">
+        {% csrf_token %}
+        <p>Search for a Car</p>
+          <input type="text" id="make" name="make" placeholder="Search Cars by Make...">
+          <input type="text" id="carModel" name="carModel" placeholder="Search Cars by Model...">
+          <input type="text" id="color" name="color" placeholder="Search Cars by Color...">
+          <input type="text" id="year" name="year" placeholder="Search Cars by Year...">
+          <button type="submit" class="btn btn-primary search">Search</button>
+      </form>
+  </div>
 </div>
 
 {% for car in cars %}
 <div class="card">
   <a href="{% url 'detail' car.id %}">
-    <div class="card-content">
+    <div class="card-content car">
       <span class="card-title">{{ car.make }} {{ car.carModel }}</span>
       <p>Model: {{ car.carModel }}</p>
       <p>Description: {{ car.description }}</p>
