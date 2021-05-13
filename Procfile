@@ -1,0 +1,1 @@
+web: gunicorn carsio2_project.wsgi

@@ -1,12 +1,27 @@
 {% extends 'base.html' %} {% block content %}
 
-<div>
+<!-- <div>
     <div class="search_bar">
         <form class="form" action="" method="get" id="search_form">
-            <input type="search" id="search">
+          <p>Search for a Car</p>
+            <input type="search" id="search" name="query">
             <button type="submit" class="btn btn-primary search">Search</button>
         </form>
     </div>
+</div> -->
+
+<div>
+  <div class="search_bar">
+      <form action="{% url 'index' %}" method="POST">
+        {% csrf_token %}
+        <p>Search for a Car</p>
+          <input type="text" id="make" name="make" placeholder="Search Car Make...">
+          <input type="text" id="carModel" name="carModel" placeholder="Search Car Model...">
+          <input type="text" id="color" name="color" placeholder="Search Car Color...">
+          <input type="text" id="year" name="year" placeholder="year">
+          <button type="submit" class="btn btn-primary search">Search</button>
+      </form>
+  </div>
 </div>
 
 {% for car in cars %}
