@@ -16,7 +16,6 @@ AAU I want to ...
 
 - search and view car fan pages while not logged in (cannot edit post or comment)
 - login
-- login goes to Profile page - edit / delete
 - Profile page - can view all my car fan pages (sorted by most likes first)
 - Profile page - can view all liked "other users" car pages (sorted most recent first)
 - Profile page - create / delete my car fan pages
