@@ -53,10 +53,10 @@ AAU I want to ...
 
 # Coding Team
 
-Nicholas JC Coles: <a href="https://www.linkedin.com/in/nicholas-jc-coles-314495a6/" rel="nofollow">LinkedIn</a> / <a href="https://github.com/jcoles1155">GitHub</a>
+Nicholas JC Coles: <a href="https://www.linkedin.com/in/nicholas-jc-coles-314495a6/" target="_blank">LinkedIn</a> / <a href="https://github.com/jcoles1155" target="_blank">GitHub</a>
 
-James Jin Hyung Kim: <a href="https://www.linkedin.com/in/jinhkim87/" rel="nofollow">LinkedIn</a> / <a href="https://github.com/jinhkim87">GitHub</a>
+James Jin Hyung Kim: <a href="https://www.linkedin.com/in/jinhkim87/" target="_blank">LinkedIn</a> / <a href="https://github.com/jinhkim87" target="_blank">GitHub</a>
 
-Tucker Craig: <a href="https://www.linkedin.com/in/tucker-m-craig/" rel="nofollow">LinkedIn</a> / <a href="https://github.com/TuckTuckC">GitHub</a>
+Tucker Craig: <a href="https://www.linkedin.com/in/tucker-m-craig/" target="_blank">LinkedIn</a> / <a href="https://github.com/TuckTuckC" target="_blank">GitHub</a>
 
-Gregory Harper: <a href="https://www.linkedin.com/in/gregory-harper-71592067/" rel="nofollow">LinkedIn</a> / <a href="https://github.com/gharper235">GitHub</a>
+Gregory Harper: <a href="https://www.linkedin.com/in/gregory-harper-71592067/" target="_blank">LinkedIn</a> / <a href="https://github.com/gharper235" target="_blank">GitHub</a>
