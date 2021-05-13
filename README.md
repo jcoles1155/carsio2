@@ -50,6 +50,7 @@ AAU I want to ...
 - Django
 - Postgres
 - JavaScript
+- CSS
 
 # Coding Team
 
