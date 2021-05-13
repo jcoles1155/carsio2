@@ -7,14 +7,13 @@
   <p>Occupation: {{profile.proOcc}}</p>
   <p>Age: {{profile.age}}</p>
   <p>Favorite Car: {{profile.favoriteCar}}</p>
-  <p>Cars Owned: {{profile.carsOwned}}</p>
   <p>Cars Currently Own: {{profile.carsOwn}}</p>
-  <a class="editBtn profileBtn" href="{% url 'profile_update' user.id %}">Update</a>
+  <a class="editBtn profileBtn" href="{% url 'profile_update' user.id %}"
+    >Update</a
+  >
 </div>
 <hr />
-{% endif %} 
-
-{% for car in cars %}
+{% endif %} {% for car in cars %}
 <div class="card">
   <a href="{% url 'detail' car.id %}">
     <div class="card-content car">
@@ -31,6 +30,4 @@
 </div>
 {% empty %}
 <p>No Cars</p>
-{% endfor %} 
-
-{% endblock %}
+{% endfor %} {% endblock %}

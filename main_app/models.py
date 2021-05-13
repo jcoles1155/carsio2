@@ -28,7 +28,6 @@ class UserProfile(models.Model):
     proOcc = models.CharField(max_length=50, default='')
     age = models.CharField(max_length=50, default='')
     favoriteCar = models.CharField(max_length=50, default='')
-    carsOwned = models.CharField(max_length=50, default='')
     carsOwn = models.CharField(max_length=250, default='')
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
