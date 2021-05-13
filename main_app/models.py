@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class CarPost(models.Model):
-    title = models.CharField(max_length=50)
+    title = models.CharField(max_length=50, verbose_name = 'Post Title')
     make = models.CharField(max_length=50)
     carModel = models.CharField(max_length=100, verbose_name = 'Model')
     color = models.CharField(max_length=50)
@@ -23,12 +23,12 @@ class CarPost(models.Model):
         return reverse('detail', kwargs={'car_id': self.id})
 
 class UserProfile(models.Model):
-    proName = models.CharField(max_length=50, default='', verbose_name = 'Professional Name')
+    proName = models.CharField(max_length=50, default='', verbose_name = 'Name')
     proLoc = models.CharField(max_length=50, default='', verbose_name ='Location')
     proOcc = models.CharField(max_length=50, default='', verbose_name ='Occupation')
     age = models.CharField(max_length=50, default='', verbose_name ='Age')
     favoriteCar = models.CharField(max_length=50, default='', verbose_name ='Favorite car')
-    carsOwn = models.CharField(max_length=250, default='', verbose_name ='Cars Owned')
+    carsOwn = models.CharField(max_length=250, default='', verbose_name ='Cars Currently Owned')
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     def __str__(self):
