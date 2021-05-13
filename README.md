@@ -2,15 +2,15 @@
 
 <a href="http://carsio.herokuapp.com/" target="_blank">Carsio</a>
 
-### Project Title
+## Project Title
 
 Carsio
 
-### Project Summary
+## Project Summary
 
 Carsio is the ultimate tribute to your favorite cars. Users can create a page to pay homage to thier cars and browse other user's cars.
 
-### User Stories
+## User Stories
 
 AAU I want to ...
 
@@ -25,7 +25,7 @@ AAU I want to ...
 - Comment and like other user car pages
 - Logout
 
-### Wireframes
+## Wireframes
 
 #### Login Page
 
@@ -43,7 +43,7 @@ AAU I want to ...
 
 ![Image of car card display wireframe](main_app/static/images/car_card.jpeg)
 
-### Technologies Used
+## Technologies Used
 
 - Python
 - Django
