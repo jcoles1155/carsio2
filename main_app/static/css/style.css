@@ -100,7 +100,7 @@ footer {
 }
 
 .comment {
-    background-color: #fd9a7f;
+    background-color: #FA7E5C;
 }
 
 .comment > th {
@@ -108,13 +108,14 @@ footer {
 }
 
 .commentHead {
-    background-color: #ffc6b6;
+    background-color: #ffbeac;
     font-size: 20px;
     color: rgb(95, 95, 95);
+    margin-top: 2vh;
 }
 
 .commentFoot {
-    border-bottom: 0.5vh solid white !important;
+    background-color: rgb(143, 143, 143);
 }
 /* Detail Page END */
 
