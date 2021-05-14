@@ -38,7 +38,6 @@
         <p>Body: {{ car.body }}</p>
         <p>Created on: {{ car.created_at }}</p>
         <img class="responsive-img card-panel indexImg" src="{{car.photo_set.first.url}}" />
-        {% csrf_token %}
       </div>
     </div>
   </a>
