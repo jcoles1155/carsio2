@@ -88,7 +88,7 @@ def profiles_index(request):
 
 class UserProfileUpdate(LoginRequiredMixin, UpdateView):
     model = UserProfile
-    fields = ['proName', 'proLoc', 'proOcc', 'age', 'favoriteCar', 'carsOwned', 'carsOwn']
+    fields = ['proName', 'proLoc', 'proOcc', 'age', 'favoriteCar',  'carsOwn']
 
 class CarCreate(LoginRequiredMixin, CreateView):
     model = CarPost
