@@ -13,14 +13,13 @@
 <div class="card">
   <a href="{% url 'detail' car.id %}">
     <div class="card-content car">
-      <span class="card-title">{{ car.make }} {{ car.carModel }}</span>
+      <span class="card-title">{{ car.user.username }}'s {{ car.make }} {{ car.carModel }}</span>
       <p>Model: {{ car.carModel }}</p>
       <p>Description: {{ car.description }}</p>
       <p>Year: {{ car.year }}</p>
       <p>Color: {{ car.color }}</p>
       <p>Body: {{ car.body }}</p>
       <p>Created on: {{ car.created_at }}</p>
-      <p>Post by: {{ car.user.username }}</p>
     </div>
   </a>
 </div>

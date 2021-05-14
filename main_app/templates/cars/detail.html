@@ -2,14 +2,13 @@
 
 <div class="card detail">
   <div class="card-content car carDetail">
-    <span class="card-title">{{ car.make }} {{ car.carModel }}</span>
+    <span class="card-title">{{ car.user.username }}'s {{ car.make }} {{ car.carModel }}</span>
     <p>Year: {{ car.year }}</p>
     <p>Model: {{ car.carModel }}</p>
     <p>Body: {{ car.body }}</p>
     <p>Color: {{ car.color }}</p>
     <p>Description: {{ car.description }}</p>
     <p>Created on: {{ car.created_at }}</p>
-    <p>Post by: {{ car.user.username }}</p>
 
     {% if user.id == car.user.id %}
     <a href="{% url 'cars_update' car.id %}" class="editBtn">Edit</a>
@@ -21,20 +20,20 @@
   {% for photo in car.photo_set.all %}
   <img class="responsive-img card-panel" src="{{photo.url}}" />
   {% empty %}
+  
   <div class="card-panel center-align noPhoto">No Photos Uploaded</div>
   {% endfor %}
+    {% if user.id == car.user.id %} {% csrf_token %}
   <form
     action="{% url 'add_photo' car.id %}"
     enctype="multipart/form-data"
     method="POST"
-    class="card-panel photoForm"
-  >
-    {% if user.id == car.user.id %} {% csrf_token %}
+    class="card-panel photoForm">
     <input type="file" name="photo-file" />
     <br /><br />
     <input type="submit" class="btn photoBtn" value="Upload Photo" />
     {% else %}
-    <h2></h2>
+
     {% endif %}
   </form>
 
