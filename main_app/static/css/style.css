@@ -108,10 +108,11 @@ footer {
 }
 
 .commentHead {
-    background-color: #ffbeac;
+    background-color: rgb(255, 255, 255);
     font-size: 20px;
     color: rgb(95, 95, 95);
     margin-top: 2vh;
+    border-bottom: 0.3vh solid #63CCC8 !important;
 }
 
 .commentFoot {
