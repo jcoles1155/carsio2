@@ -43,6 +43,16 @@ footer {
     margin-top: 10vh;
 }
 
+.indexGrid {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+.indexImg {
+    grid-row: 1/8;
+    grid-column: 2/3;
+}
+
 /* Detail Page */
 .detail {
     background-color: #F3ECE5 !important;
