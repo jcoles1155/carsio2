@@ -25,6 +25,7 @@
 </div>
 
 {% for car in cars %}
+
 <div class="card">
   <a href="{% url 'detail' car.id %}">
     <div class="card-content car">
@@ -37,7 +38,7 @@
         <p>Body: {{ car.body }}</p>
         <p>Created on: {{ car.created_at }}</p>
         <img class="responsive-img card-panel indexImg" src="{{car.photo_set.first.url}}" />
-        <div>{{car.photo_set.first.url}}</div>
+        {% csrf_token %}
       </div>
     </div>
   </a>
