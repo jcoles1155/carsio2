@@ -43,6 +43,20 @@ footer {
     margin-top: 10vh;
 }
 
+.indexGrid {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+.indexImg {
+    grid-row: 1/8;
+    grid-column: 2/3;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: #FA7E5C !important;
+    box-shadow: none !important;
+}
+
 /* Detail Page */
 .detail {
     background-color: #F3ECE5 !important;
@@ -100,7 +114,7 @@ footer {
 }
 
 .comment {
-    background-color: #fd9a7f;
+    background-color: #FA7E5C;
 }
 
 .comment > th {
@@ -108,13 +122,15 @@ footer {
 }
 
 .commentHead {
-    background-color: #ffc6b6;
+    background-color: rgb(255, 255, 255);
     font-size: 20px;
     color: rgb(95, 95, 95);
+    margin-top: 2vh;
+    border-bottom: 0.3vh solid #63CCC8 !important;
 }
 
 .commentFoot {
-    border-bottom: 0.5vh solid white !important;
+    background-color: rgb(143, 143, 143);
 }
 /* Detail Page END */
 
